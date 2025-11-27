@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysqls
+  name: mongodb
 spec:
   selector:
-    app: mysqls
+    app: mongodb
   ports:
-  - name: mysqls
-    protocol: TCP
-    port: 3306
-    targetPort: 3306
+  - protocol: TCP
+    port: 27017
+    targetPort: 27017

@@ -16,14 +16,22 @@ spec:
         - name: backend
           image: jsachdev07/mynode:v1
           env:
-            - name: DB_HOST
-              value: mysqls
-            - name: DB_USER
-              value: root
-            - name: DB_PASS
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-pass
-                  key: password
+          - name: MONGO_CONN_STR
+            value: "mongodb://mongodb:27017/todo?directConnection=true"
+          - name: MONGO_USERNAME
+            value: "root"
+          
+          - name: MONGO_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-pass
+                key: password
           ports:
             - containerPort: 8080
+          volumeMounts:
+          - name: shared-volume
+            mountPath: /app/shared-data
+          volumes:
+          - name: shared-volume
+            persistentVolumeClaim:
+              claimName: shared-exchange-pvc
