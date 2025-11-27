@@ -17,13 +17,13 @@ spec:
           image: jsachdev07/mynode:v1
           env:
             - name: DB_HOST
-              value: mysql
+              value: mysqls
             - name: DB_USER
               value: root
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
-                  name: mysql-secret
+                  name: mysql-pass
                   key: password
           ports:
             - containerPort: 8080

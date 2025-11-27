@@ -19,7 +19,7 @@ spec:
         image: jsachdev07/myreact:v1
         env:
          - name: BACKEND_URL
-           value: http://backend:8080
+           value: http://api:8080
         ports:
         - containerPort: 3000
          

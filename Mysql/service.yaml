@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: mysqls
 spec:
   selector:
-    app: mysql
+    app: mysqls
   ports:
-  - name: mysql
+  - name: mysqls
     protocol: TCP
     port: 3306
     targetPort: 3306
